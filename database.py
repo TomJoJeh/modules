@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 def epsAg(l):
-    file = pd.read_excel('/Users/tomjoly-jehenne/Desktop/PhD/Lab/python_codes/Modules/database/Ag.xlsx')
+    /Users/tomjoly-jehenne/Documents/GitHub/modules/database/Ag.xlsx
+    file = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Ag.xlsx')
     data = np.array(file).T
     list_lambd_m = data[0]*1e-6
     list_eps_m = (data[1]+1j*data[2])**2
@@ -13,7 +14,7 @@ def epsAg(l):
     return(eps_m)
 
 def epsAl(l):
-    file = pd.read_excel('/Users/tomjoly-jehenne/Desktop/PhD/Lab/python_codes/Modules/database/Al.xlsx')
+    file = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Al.xlsx')
     data = np.array(file).T
     list_lambd_m = data[0]*1e-6
     list_eps_m = (data[1]+1j*data[2])**2
@@ -24,7 +25,7 @@ def epsAl(l):
 
 def epsAlumina(l):
     
-    file2 = pd.read_excel('/Users/tomjoly-jehenne/Desktop/PhD/Lab/python_codes/Modules/database/Alumina.xlsx')
+    file2 = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Alumina.xlsx')
     data2 = np.array(file2).T
     list_lambd_d = data2[0]*1e-6
     list_eps_d = (data2[1]+1j*data2[2])**2
@@ -34,7 +35,7 @@ def epsAlumina(l):
     return(eps_d)
 
 def epsAu(l):
-    file = pd.read_excel('/Users/tomjoly-jehenne/Desktop/PhD/Lab/python_codes/Modules/database/Au.xlsx')
+    file = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Au.xlsx')
     data = np.array(file).T
     list_lambd_m = data[0]*1e-6
     list_eps_m = (data[1]+1j*data[2])**2
@@ -44,7 +45,7 @@ def epsAu(l):
     return(eps_m)
 
 def nAg(l):
-    file = pd.read_excel('/Users/tomjoly-jehenne/Desktop/PhD/Lab/python_codes/Modules/database/Ag.xlsx')
+    file = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Ag.xlsx')
     data = np.array(file).T
     list_lambd_m = data[0]*1e-6
     list_n_m = (data[1]+1j*data[2])
@@ -53,7 +54,7 @@ def nAg(l):
     return(n_m)
 
 def nAlumina(l):
-    file2 = pd.read_excel('/Users/tomjoly-jehenne/Desktop/PhD/Lab/python_codes/Modules/database/Alumina.xlsx')
+    file2 = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Alumina.xlsx')
     data2 = np.array(file2).T
     list_lambd_d = data2[0]*1e-6
     list_n_d = (data2[1]+1j*data2[2])
@@ -62,7 +63,7 @@ def nAlumina(l):
     return(n_d)
 
 def nAl(l):
-    file = pd.read_excel('/Users/tomjoly-jehenne/Desktop/PhD/Lab/python_codes/Modules/database/Al.xlsx')
+    file = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Al.xlsx')
     data = np.array(file).T
     list_lambd_m = data[0]*1e-6
     list_n_m = (data[1]+1j*data[2])
@@ -75,7 +76,7 @@ def mirror_Al_F01(Lambda):
     returns reflectance of Thorlabs F01 Al miror
     Lambda : wavelength in micrometer
     """
-    Tab=np.array(pd.read_excel("/Users/tomjoly-jehenne/Desktop/PhD/Lab/python_codes/Modules/database/Aluminum_Coating_Comparison_Data.xlsx"))
+    Tab=np.array(pd.read_excel("/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Aluminum_Coating_Comparison_Data.xlsx"))
     Tab = Tab[2:,2:4].astype(np.float64)
     wavelength, reflectance = Tab[:,0], Tab[:,1]
     idx1 = np.nanargmin(np.abs(wavelength-Lambda))
@@ -93,7 +94,7 @@ def mirror_Al_G01(Lambda):
     returns reflectance of Thorlabs G01 Al miror
     Lambda : wavelength in micrometer
     """
-    Tab=np.array(pd.read_excel("/Users/tomjoly-jehenne/Desktop/PhD/Lab/python_codes/Modules/database/Aluminum_Coating_Comparison_Data.xlsx"))
+    Tab=np.array(pd.read_excel("/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Aluminum_Coating_Comparison_Data.xlsx"))
     Tab = Tab[2:,4:6].astype(np.float64)
     wavelength, reflectance = Tab[:,0], Tab[:,1]
     idx1 = np.nanargmin(np.abs(wavelength-Lambda))
@@ -111,7 +112,7 @@ def mirror_Ag_P01(Lambda):
     returns reflectance of Thorlabs P01 Ag miror
     Lambda : wavelength in micrometer
     """
-    Tab=np.array(pd.read_excel("/Users/tomjoly-jehenne/Desktop/PhD/Lab/python_codes/Modules/database/Silver_Coating_Comparison_Data.xlsx"))
+    Tab=np.array(pd.read_excel("/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Silver_Coating_Comparison_Data.xlsx"))
     Tab = Tab[2:,2:4].astype(np.float64)
     wavelength, reflectance = Tab[:,0], Tab[:,1]
     idx1 = np.nanargmin(np.abs(wavelength-Lambda))
@@ -129,7 +130,7 @@ def mirror_Au_M01(Lambda):
     returns reflectance of Thorlabs M01 Au miror
     Lambda : wavelength in micrometer
     """
-    Tab=np.array(pd.read_excel("/Users/tomjoly-jehenne/Desktop/PhD/Lab/python_codes/Modules/database/Gold_Coating_Comparison_Data.xlsx"))
+    Tab=np.array(pd.read_excel("/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Gold_Coating_Comparison_Data.xlsx"))
     Tab = Tab[2:,2:4].astype(np.float64)
     wavelength, reflectance = Tab[:,0], Tab[:,1]
     idx1 = np.nanargmin(np.abs(wavelength-Lambda))
@@ -148,7 +149,7 @@ def lens_NBK7(Lambda):
     Lambda : wavelength in micrometer
     """
     Lambda*=1000 #in data, wavelength in nanometer
-    Tab=np.array(pd.read_excel("/Users/tomjoly-jehenne/Desktop/PhD/Lab/python_codes/Modules/database/Uncoated_N-BK7_Transmission.xlsx"))
+    Tab=np.array(pd.read_excel("/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Uncoated_N-BK7_Transmission.xlsx"))
     Tab = Tab[1:,2:4].astype(np.float64)
     wavelength, transmission = Tab[:,0], Tab[:,1]
     idx1 = np.nanargmin(np.abs(wavelength-Lambda))
