@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 def epsAg(l):
-    /Users/tomjoly-jehenne/Documents/GitHub/modules/database/Ag.xlsx
     file = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Ag.xlsx')
     data = np.array(file).T
     list_lambd_m = data[0]*1e-6
@@ -24,7 +23,6 @@ def epsAl(l):
     return(eps_m)
 
 def epsAlumina(l):
-    
     file2 = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Alumina.xlsx')
     data2 = np.array(file2).T
     list_lambd_d = data2[0]*1e-6
