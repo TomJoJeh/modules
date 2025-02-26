@@ -124,6 +124,24 @@ def mirror_Ag_P01(Lambda):
     R = reflectance[idx1] + (reflectance[idx2]-reflectance[idx1])/(d2+d1)*d1
     return(R/100)
 
+def mirror_Au_M01(Lambda):
+    """
+    returns reflectance of Thorlabs M01 Au miror
+    Lambda : wavelength in micrometer
+    """
+    Tab=np.array(pd.read_excel("/Users/tomjoly-jehenne/Desktop/PhD/Lab/python_codes/Modules/database/Gold_Coating_Comparison_Data.xlsx"))
+    Tab = Tab[2:,2:4].astype(np.float64)
+    wavelength, reflectance = Tab[:,0], Tab[:,1]
+    idx1 = np.nanargmin(np.abs(wavelength-Lambda))
+    if Lambda>=wavelength[idx1]:
+        idx2 = idx1+1
+    else:
+        idx2 = idx1-1
+    d1=np.abs(wavelength[idx1]-Lambda)
+    d2=np.abs(wavelength[idx2]-Lambda)
+    R = reflectance[idx1] + (reflectance[idx2]-reflectance[idx1])/(d2+d1)*d1
+    return(R/100)
+
 def lens_NBK7(Lambda):
     """
     returns transmission of Thorlabs N-BK7 lens
