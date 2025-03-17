@@ -107,6 +107,26 @@ def epsSiO2(l):
     eps_m = (list_eps_m[argm]-list_eps_m[argm-1])*(l-list_lambd_m[argm-1]) / (list_lambd_m[argm]-list_lambd_m[argm-1]) + list_eps_m[argm-1]
     return(eps_m)   
 
+def nTiO2(l):
+    file = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/TiO2.xlsx')
+    data = np.array(file).T
+    list_lambd_m = data[0]*1e-6
+    list_n_m = (data[1]+1j*data[2])
+    argm = np.searchsorted(list_lambd_m,l)
+    n_m = (list_n_m[argm]-list_n_m[argm-1])*(l-list_lambd_m[argm-1]) / (list_lambd_m[argm]-list_lambd_m[argm-1]) + list_n_m[argm-1]
+    return(n_m)
+
+def epsTiO2(l):
+    file = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/TiO2.xlsx')
+    data = np.array(file).T
+    list_lambd_m = data[0]*1e-6
+    list_eps_m = (data[1]+1j*data[2])**2
+    list_n_m = data[1]
+    argm = np.searchsorted(list_lambd_m,l)
+    eps_m = (list_eps_m[argm]-list_eps_m[argm-1])*(l-list_lambd_m[argm-1]) / (list_lambd_m[argm]-list_lambd_m[argm-1]) + list_eps_m[argm-1]
+    return(eps_m) 
+
+
 def mirror_Al_F01(Lambda):
     """
     returns reflectance of Thorlabs F01 Al miror
