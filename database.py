@@ -126,6 +126,15 @@ def epsTiO2(l):
     eps_m = (list_eps_m[argm]-list_eps_m[argm-1])*(l-list_lambd_m[argm-1]) / (list_lambd_m[argm]-list_lambd_m[argm-1]) + list_eps_m[argm-1]
     return(eps_m) 
 
+def epsTi(l):
+    file = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Ti.xlsx')
+    data = np.array(file).T
+    list_lambd_m = data[0]*1e-6
+    list_eps_m = (data[1]+1j*data[2])**2
+    list_n_m = data[1]
+    argm = np.searchsorted(list_lambd_m,l)
+    eps_m = (list_eps_m[argm]-list_eps_m[argm-1])*(l-list_lambd_m[argm-1]) / (list_lambd_m[argm]-list_lambd_m[argm-1]) + list_eps_m[argm-1]
+    return(eps_m) 
 
 def mirror_Al_F01(Lambda):
     """
