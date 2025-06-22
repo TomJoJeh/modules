@@ -69,6 +69,15 @@ def nAl(l):
     n_m = (list_n_m[argm]-list_n_m[argm-1])*(l-list_lambd_m[argm-1]) / (list_lambd_m[argm]-list_lambd_m[argm-1]) + list_n_m[argm-1]
     return(n_m)
 
+def nAu(l):
+    file = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Au.xlsx')
+    data = np.array(file).T
+    list_lambd_m = data[0]*1e-6
+    list_n_m = (data[1]+1j*data[2])
+    argm = np.searchsorted(list_lambd_m,l)
+    n_m = (list_n_m[argm]-list_n_m[argm-1])*(l-list_lambd_m[argm-1]) / (list_lambd_m[argm]-list_lambd_m[argm-1]) + list_n_m[argm-1]
+    return(n_m)
+
 def nSi(l):
     file = pd.read_excel('/Users/tomjoly-jehenne/Documents/GitHub/modules/database/Si.xlsx')
     data = np.array(file).T
